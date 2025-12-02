@@ -168,7 +168,7 @@ Access at `http://localhost:3000`
 ## 👥 Project Information
 
 **Developer**: Pankaj Jaiswal  
-**GitHub**: [Pankaj52141/AgriNova](https://github.com/Pankaj52141/Fasal-AI)  
+**GitHub**: [Pankaj52141/Fasal-AI](https://github.com/Pankaj52141/Fasal-AI)  
 **Purpose**: Educational project for sustainable agriculture  
 **Last Updated**: December 2, 2025  
 **Version**: 1.0.0
