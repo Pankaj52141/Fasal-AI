@@ -1,0 +1,9 @@
+catboost
+librosa
+scikit-learn
+numpy
+pandas
+tensorflow-cpu
+Pillow
+soundfile
+keras
