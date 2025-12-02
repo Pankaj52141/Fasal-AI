@@ -84,3 +84,16 @@ logs
 *.bak
 *.backup
 *~
+
+# Machine Learning Models (large files)
+*.keras
+*.h5
+*.pkl
+*.cbm
+*.pt
+*.pth
+*.onnx
+*.pb
+models/*.keras
+models/*.cbm
+models/*.pkl
