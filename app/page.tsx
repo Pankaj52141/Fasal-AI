@@ -181,7 +181,7 @@ export default function Home() {
               <Leaf className="w-6 h-6 text-white" />
             </div>
             <span className="font-bold text-xl bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-              FarmGenius AI
+              Fasal AI
             </span>
           </motion.div>
           <div className="flex items-center gap-4">
@@ -434,14 +434,14 @@ export default function Home() {
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-white">Ready to Transform Your Farm?</h2>
           <p className="text-xl text-emerald-100 max-w-2xl mx-auto">
-            Join thousands of farmers using FarmGenius AI to grow smarter, not harder. Start your free analysis today.
+            Join thousands of farmers using Fasal AI to grow smarter, not harder. Start your free analysis today.
           </p>
           <Link href="/signup">
             <Button
               size="lg"
               className="bg-white hover:bg-slate-100 text-emerald-600 shadow-xl hover:shadow-2xl font-semibold"
             >
-              Try FarmGenius AI
+              Try Fasal AI
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
@@ -451,8 +451,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-emerald-500/20 py-12 bg-slate-950/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-400">
-          <p>&copy; 2025 AgriNova AI. Empowering sustainable agriculture with quantum-level AI.</p>
-        </div>
+          </div>
       </footer>
     </div>
   )

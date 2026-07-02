@@ -208,7 +208,7 @@ export default function SignupPage() {
             <Leaf className="w-7 h-7 text-white" />
           </div>
           <span className="font-bold text-2xl bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-            FarmGenius AI
+            Fasal AI
           </span>
         </motion.div>
 
@@ -224,7 +224,7 @@ export default function SignupPage() {
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
                   Create Your Account
                 </h1>
-                <p className="text-slate-400">Join FarmGenius AI today</p>
+                <p className="text-slate-400">Join Fasal AI today</p>
               </div>
 
               <form onSubmit={handleSignup} className="space-y-4">

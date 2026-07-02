@@ -10,7 +10,7 @@ async function callGeminiAPI(message: string, context?: any) {
 
   try {
     // Build context for better responses
-    const systemPrompt = `You are AgriNova AI, an expert agricultural assistant helping farmers optimize their crops. 
+    const systemPrompt = `You are Fasal AI, an expert agricultural assistant helping farmers optimize their crops.
 You provide advice on:
 - Crop health monitoring and disease prevention
 - Irrigation scheduling and water management
@@ -23,12 +23,11 @@ Always provide practical, actionable advice specific to farming. Keep responses 
 ${context ? `Current farm context: ${JSON.stringify(context)}` : ""}`
 
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-goog-api-key": apiKey,
         },
         body: JSON.stringify({
           contents: [
@@ -51,7 +50,14 @@ ${context ? `Current farm context: ${JSON.stringify(context)}` : ""}`
     )
 
     if (!response.ok) {
-      console.error("[v0] Gemini API error:", response.status)
+      const errorData = await response.json().catch(() => ({}))
+      console.error("[v0] Gemini API error:", response.status, errorData)
+      
+      // Handle rate limit specifically
+      if (response.status === 429) {
+        return "⚠️ I'm getting a lot of requests right now! The AI service has hit its rate limit. Please wait a minute and try again. In the meantime, here's what I can help with: crop health, irrigation, fertilizer, disease management, yield predictions, and sustainability."
+      }
+      
       return getDefaultResponse(message)
     }
 

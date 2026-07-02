@@ -1,4 +1,4 @@
--- AgriNova Database Setup Script
+-- Fasal AI Database Setup Script
 -- Multi-Tenant Farmer Management System
 -- Each farmer sees only their own data with complete isolation
 

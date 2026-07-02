@@ -36,16 +36,27 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     const fetchUser = async () => {
       setLoading(true)
       try {
-        const { data: { user: supaUser } } = await supabase.auth.getUser()
+        // Add timeout to prevent infinite loading
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Auth timeout')), 10000)
+        )
+        
+        const authPromise = supabase.auth.getUser()
+        
+        const { data: { user: supaUser } } = await Promise.race([
+          authPromise,
+          timeoutPromise
+        ]) as any
+
         if (supaUser) {
           // Try to get user profile from database
-          const { data: profile } = await supabase
+          const { data: profile, error: profileError } = await supabase
             .from('users')
             .select('*')
             .eq('id', supaUser.id)
             .single()
 
-          if (profile) {
+          if (profile && !profileError) {
             setUser({
               id: profile.id,
               farmerId: profile.farmer_id,
@@ -84,38 +95,45 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
     // Listen for auth state changes and update user context
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log('Auth state changed:', event)
+      
       if (event === 'SIGNED_OUT' || !session) {
         setUser(null)
-      } else if (session?.user) {
-        // Fetch user profile again on sign-in
-        const { data: profile } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', session.user.id)
-          .single()
-        if (profile) {
-          setUser({
-            id: profile.id,
-            farmerId: profile.farmer_id,
-            fullName: profile.full_name,
-            email: profile.email,
-            farmSize: profile.total_land_hectares,
-            phone: profile.phone,
-            address: profile.address,
-            city: profile.city,
-            state: profile.state,
-            role: profile.role,
-            isActive: profile.is_active
-          })
-        } else {
-          setUser({
-            id: session.user.id,
-            farmerId: undefined,
-            fullName: session.user.user_metadata?.full_name || "User",
-            email: session.user.email || "",
-            role: session.user.user_metadata?.role || "farmer",
-            isActive: true
-          })
+        setLoading(false)
+      } else if (event === 'TOKEN_REFRESHED' || event === 'SIGNED_IN') {
+        if (session?.user) {
+          // Fetch user profile again on sign-in
+          const { data: profile, error: profileError } = await supabase
+            .from('users')
+            .select('*')
+            .eq('id', session.user.id)
+            .single()
+          
+          if (profile && !profileError) {
+            setUser({
+              id: profile.id,
+              farmerId: profile.farmer_id,
+              fullName: profile.full_name,
+              email: profile.email,
+              farmSize: profile.total_land_hectares,
+              phone: profile.phone,
+              address: profile.address,
+              city: profile.city,
+              state: profile.state,
+              role: profile.role,
+              isActive: profile.is_active
+            })
+          } else {
+            setUser({
+              id: session.user.id,
+              farmerId: undefined,
+              fullName: session.user.user_metadata?.full_name || "User",
+              email: session.user.email || "",
+              role: session.user.user_metadata?.role || "farmer",
+              isActive: true
+            })
+          }
+          setLoading(false)
         }
       }
     })

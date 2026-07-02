@@ -1,8 +1,8 @@
-# AgriNova - AI-Powered Smart Agriculture Platform
+# Fasal AI - AI-Powered Smart Agriculture Platform
 
 ## 🌾 Project Overview
 
-AgriNova is an intelligent agricultural management system that helps farmers optimize crop yields, manage resources efficiently, and make data-driven decisions through real-time monitoring, predictive analytics, and AI-powered recommendations.
+Fasal AI is an intelligent agricultural management system that helps farmers optimize crop yields, manage resources efficiently, and make data-driven decisions through real-time monitoring, predictive analytics, and AI-powered recommendations.
 
 ---
 
@@ -105,8 +105,8 @@ Formula: Water = Base_water × Area × Soil_adjustment
 
 1. **Clone Repository**
 ```bash
-git clone https://github.com/Pankaj52141/AgriNova.git
-cd AgriNova
+git clone https://github.com/Pankaj52141/FasalAI.git
+cd FasalAI
 ```
 
 2. **Install Dependencies**
@@ -168,7 +168,7 @@ Access at `http://localhost:3000`
 ## 👥 Project Information
 
 **Developer**: Pankaj Jaiswal  
-**GitHub**: [Pankaj52141/AgriNova](https://github.com/Pankaj52141/AgriNova)  
+**GitHub**: [Pankaj52141/FasalAI](https://github.com/Pankaj52141/FasalAI)
 **Purpose**: Educational project for sustainable agriculture  
 **Last Updated**: December 2, 2025  
 **Version**: 1.0.0

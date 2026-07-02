@@ -36,7 +36,7 @@ export default function ChatPage() {
         id: "1",
         role: "assistant",
         content:
-          "Hello! I'm AgriNova AI Assistant, powered by Gemini. I can help you with crop health monitoring, irrigation scheduling, fertilizer recommendations, disease prevention, yield predictions, and sustainability practices. What would you like to know about your farm?",
+          "Hello! I'm Fasal AI Assistant, powered by Gemini. I can help you with crop health monitoring, irrigation scheduling, fertilizer recommendations, disease prevention, yield predictions, and sustainability practices. What would you like to know about your farm?",
         timestamp: new Date(),
       },
     ])
@@ -111,7 +111,7 @@ export default function ChatPage() {
 
       <main className="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-foreground">AgriNova AI Assistant</h1>
+          <h1 className="text-3xl font-bold text-foreground">Fasal AI Assistant</h1>
           <p className="text-muted-foreground">Powered by Gemini - Ask me anything about your farm</p>
         </div>
 
