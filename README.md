@@ -168,7 +168,7 @@ Access at `http://localhost:3000`
 ## 👥 Project Information
 
 **Developer**: Pankaj Jaiswal  
-**GitHub**: [Pankaj52141/FasalAI](https://github.com/Pankaj52141/FasalAI)
+**GitHub**: [Pankaj52141/FasalAI](https://github.com/Pankaj52141/FasalAI)  
 **Purpose**: Educational project for sustainable agriculture  
 **Last Updated**: December 2, 2025  
 **Version**: 1.0.0
